@@ -32,7 +32,23 @@ function createWeatherCard(weatherObj) {
   return card;
 }
 
+function populateCurrentWeather(weatherObj) {
+  const currentWeatherDiv = document.getElementById('current-weather');
+  const currentWeatherCard = createWeatherCard(weatherObj);
+
+  currentWeatherDiv.appendChild(currentWeatherCard);
+}
+
+function populate24HourForecast(forecastArray) {
+  const currentWeatherDiv = document.getElementById('24-hour-forecast');
+  forecastArray.forEach((forecast) => {
+    const weatherCard = createWeatherCard(forecast);
+    currentWeatherDiv.appendChild(weatherCard);
+  });
+}
+
 export {
   setBackgroundImage,
-  createWeatherCard,
+  populateCurrentWeather,
+  populate24HourForecast,
 };
