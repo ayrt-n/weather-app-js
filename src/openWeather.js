@@ -18,6 +18,15 @@ async function getFiveDayForecast(city) {
   return data;
 }
 
+// Check whether it is day or night based on current time and sunrise/sunset time and return bool
+function isNightTime(current, sunrise, sunset) {
+  if (current > sunrise && current < sunset) {
+    return false;
+  }
+
+  return true;
+}
+
 // Parses Open Weather return data and returns object with important variables
 function parseWeatherData(data) {
   return {
@@ -27,6 +36,8 @@ function parseWeatherData(data) {
     high: data.main.temp_max,
     min: data.main.temp_min,
     weather: data.weather[0].description,
+    weatherId: data.weather[0].id,
+    isNight: isNightTime(data.dt, data.sys.sunrise, data.sys.sunset),
   };
 }
 
