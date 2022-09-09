@@ -11,16 +11,31 @@ async function getCurrentWeather(city) {
 
 // Fetches and returns 3-hour/5-day weather forecast data in JSON format
 async function getFiveDayForecast(city) {
+  const current = await getCurrentWeather(city);
+
   const url = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apiKey}`;
   const response = await fetch(url, { mode: 'cors' });
   const data = await response.json();
+
+  // Set sunrise and sunset variable, not available in forecast API call
+  data.sys = {
+    sunrise: current.sys.sunrise,
+    sunset: current.sys.sunset,
+  };
 
   return data;
 }
 
 // Check whether it is day or night based on current time and sunrise/sunset time and return bool
 function isNightTime(current, sunrise, sunset) {
-  if (current > sunrise && current < sunset) {
+  const currentDate = new Date(current * 1000);
+  const sunriseDate = new Date(sunrise * 1000);
+  const sunsetDate = new Date(sunset * 1000);
+  const currentHour = currentDate.getHours();
+  const sunriseHour = sunriseDate.getHours();
+  const sunsetHour = sunsetDate.getHours();
+
+  if (currentHour >= sunriseHour && currentHour < sunsetHour) {
     return false;
   }
 
@@ -29,8 +44,13 @@ function isNightTime(current, sunrise, sunset) {
 
 // Parses Open Weather return data and returns object with important variables
 function parseWeatherData(data) {
+  const timeObj = {};
+  timeObj.full = new Date(data.dt * 1000);
+  timeObj.hour = timeObj.full.getHours();
+  timeObj.minute = timeObj.full.getMinutes();
+
   return {
-    time: new Date(data.dt * 1000),
+    time: timeObj,
     temp: Math.round(data.main.temp),
     tempFeelsLike: Math.round(data.main.feels_like),
     high: Math.round(data.main.temp_max),
@@ -43,8 +63,11 @@ function parseWeatherData(data) {
 
 // Parses array of Open Weather return data and returns array of objects with important variables
 function parseForecastData(forecastData) {
-  const forecast = forecastData.list.map((data) => parseWeatherData(data));
+  // Inefficient but call and add sunrise/sunset attr to each element in forecast array
+  const forecastArray = forecastData.list.map((data) => ({ ...data, sys: forecastData.sys }));
 
+  // Map forecast array transforming into array of weather objects
+  const forecast = forecastArray.map((data) => parseWeatherData(data));
   return forecast;
 }
 
