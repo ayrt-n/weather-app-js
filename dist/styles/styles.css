@@ -106,6 +106,10 @@ h3 {
   color: var(--black-50);
 }
 
+.title::first-letter {
+  text-transform: capitalize;
+}
+
 .subtitle {
   color: var(--black-200);
 }
