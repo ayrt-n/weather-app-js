@@ -126,6 +126,10 @@ h3 {
   margin-bottom: 2rem;
 }
 
+.container > h1 {
+  margin-bottom: 1.75rem;
+}
+
 /* Form Styling */
 input, textarea, select {
   box-sizing: border-box;
