@@ -119,9 +119,16 @@ function populate5DayForecast(forecastArray) {
   });
 }
 
+// Set the location header
+function populateLocationHeader(location) {
+  const locationHeader = document.getElementById('location');
+  locationHeader.textContent = location;
+}
+
 export {
   setBackgroundImage,
   populateCurrentWeather,
   populate24HourForecast,
   populate5DayForecast,
+  populateLocationHeader,
 };
