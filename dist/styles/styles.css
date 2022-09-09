@@ -1,0 +1,219 @@
+/* Set Inter font as specified in https://rsms.me/inter/inter.css */
+:root { 
+  font-family: 'Inter', sans-serif;
+}
+@supports (font-variation-settings: normal) {
+  :root { font-family: 'Inter var', sans-serif; }
+}
+
+/* Variables */
+:root {
+  --black-50: #fafafa;
+  --black-100: #f4f4f5;
+  --black-200: #e4e4e7;
+  --black-300: #d4d4d8;
+  --black-400: #a1a1aa;
+  --black-700: #3f3f46;
+  --black-800: #27272a;
+  --black-900: #18181b;
+}
+
+/* General HTML Element Styling */
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  height: 100%;
+  color: var(--black-800);
+}
+
+body {
+  font-weight: 400;
+  letter-spacing: -0.004em;
+  height: 100%;
+}
+
+a {
+  color: inherit;
+  text-decoration: inherit;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: var(--black-50);
+}
+
+h1 {
+  font-weight: 750;
+  font-size: 2.5rem;
+  letter-spacing: -0.055em;
+}
+
+h2 {
+  font-weight: 700;
+  font-size: 1.75rem;
+  letter-spacing: -0.055em;
+}
+
+h3 {
+  font-weight: 650;
+  font-size: 1.2rem;
+  letter-spacing: -0.018em;
+}
+
+/* Navbar Styling */
+.navbar {
+  min-height: 3.25rem;
+  margin-bottom: 1.25rem;
+}
+
+.navbar-item {
+  padding: 0.75rem 1rem;
+}
+
+.navbar input {
+  margin-right: 1rem;
+}
+
+/* Main Div Styling */
+#main {
+  min-height: 100vh;
+  background-size: cover;
+  background-repeat: no-repeat;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.weather-card {
+  max-width: 125px;
+  background: rgba(0, 0, 0, 0.35);
+  color: var(--black-200);
+  border-radius: 12px;
+  padding: 1rem;
+  text-align: center;
+}
+
+.weather-card h1 {
+  font-size: 1.25rem;
+}
+
+.weather-card *:not(:last-child) {
+  margin-bottom: 0.5rem;
+}
+
+.title {
+  color: var(--black-50);
+}
+
+.subtitle {
+  color: var(--black-200);
+}
+
+/* Form Styling */
+input, textarea, select {
+  box-sizing: border-box;
+}
+
+.label:not(:last-child) {
+  margin-bottom: 0.5em;
+}
+
+.label {
+  display: block;
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.field:not(:last-child) {
+  margin-bottom: 0.75rem;
+}
+
+.field-label .label {
+  font-size: inherit;
+}
+
+.field.is-grouped {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.field.is-grouped > .control {
+  flex-shrink: 0;
+}
+
+.field.is-grouped > .control:not(:last-child) {
+  margin-bottom: 0;
+  margin-right: 0.75rem;
+}
+
+.control {
+  box-sizing: border-box;
+  clear: both;
+  font-size: 1rem;
+  position: relative;
+  text-align: inherit;
+}
+
+.button, .input {
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  align-items: center;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  box-shadow: none;
+  display: inline-flex;
+  font-size: 1rem;
+  height: 2.5em;
+  justify-content: flex-start;
+  line-height: 1.5;
+  padding-bottom: calc(0.5em - 1px);
+  padding-left: calc(0.75em - 1px);
+  padding-right: calc(0.75em - 1px);
+  padding-top: calc(0.5em - 1px);
+  position: relative;
+  vertical-align: top;
+}
+
+.button:focus, .input:focus, .textarea:focus, .select select:focus, .date input[type="date"]:focus,
+.button:active, .input:active, .textarea:active, .select select:active, .date input[type="date"]:active {
+  outline: none;
+}
+
+.button {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.input {
+  background-color: white;
+  border-color: #dbdbdb;
+  border-radius: 4px;
+  color: #363636;
+}
+
+.input::-moz-placeholder {
+  color: rgba(54, 54, 54, 0.3);
+}
+
+.input::-webkit-input-placeholder {
+  color: rgba(54, 54, 54, 0.3);
+}
+
+.input:hover {
+  border-color: #b5b5b5;
+}
+
+.input:focus {
+  border-color: #485fc7;
+  box-shadow: 0 0 0 0.125em rgba(72, 95, 199, 0.25);
+}
+
+.input {
+  box-shadow: inset 0 0.0625em 0.125em rgba(10, 10, 10, 0.05);
+  max-width: 100%;
+  width: 100%;
+}
