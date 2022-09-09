@@ -194,6 +194,28 @@ input, textarea, select {
   padding-top: calc(0.5em - 1px);
   position: relative;
   vertical-align: top;
+  background-color: white;
+  border-color: #dbdbdb;
+  color: #363636;
+}
+
+.button:hover {
+  border-color: #b5b5b5;
+  color: #363636;
+}
+
+.button:focus {
+  border-color: #485fc7;
+  color: #363636;
+}
+
+.button:focus:not(:active) {
+  box-shadow: 0 0 0 0.125em rgba(72, 95, 199, 0.25);
+}
+
+.button:active {
+  border-color: #4a4a4a;
+  color: #363636;
 }
 
 .button:focus, .input:focus, .textarea:focus, .select select:focus, .date input[type="date"]:focus,
