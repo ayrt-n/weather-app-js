@@ -6,9 +6,40 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./styles/reset.css">
     <link rel="stylesheet" href="./styles/styles.css">
+    <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
     <title>Weather App</title>
   </head>
   <body>
+    <div id="main">
+      <!-- Navbar with search -->
+      <nav class="navbar">
+        <div class="navbar-item">
+          <div class="field is-grouped">
+            <input type="text" class="input" placeholder="Enter city name!">
+            <div class="control">
+              <button class="button">
+                Search
+              </button>
+            </div>
+          </div>
+        </div>
+      </nav>
+      
+      <!-- Display of Weather and Forecast -->
+      <h1>Ottawa, Ontario</h1>
+      <div class="current" id="current-weather">
+      </div>
+
+      <div class="forecast" id="24-hour-forecast">
+        <h1>24-Hour Forecast</h1>
+
+      </div>
+
+      <div class="forecast" id="5-day forecast">
+        <h1>5-Day Forecast</h1>
+
+      </div>
+    </div>
     <script src="main.js"></script>
   </body>
 </html>
