@@ -48,6 +48,8 @@ function parseWeatherData(data) {
   timeObj.full = new Date(data.dt * 1000);
   timeObj.hour = timeObj.full.getHours();
   timeObj.minute = timeObj.full.getMinutes();
+  timeObj.month = timeObj.full.getMonth();
+  timeObj.day = timeObj.full.getUTCDate();
 
   return {
     time: timeObj,
