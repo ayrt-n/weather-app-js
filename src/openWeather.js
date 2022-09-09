@@ -51,7 +51,12 @@ function parseWeatherData(data) {
   timeObj.month = timeObj.full.getMonth();
   timeObj.day = timeObj.full.getUTCDate();
 
+  const location = (data.city)
+    ? `${data.city.name}, ${data.city.country}`
+    : `${data.name}, ${data.sys.country}`;
+
   return {
+    location,
     time: timeObj,
     temp: Math.round(data.main.temp),
     tempFeelsLike: Math.round(data.main.feels_like),
