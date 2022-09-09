@@ -13,7 +13,7 @@ async function getCurrentWeather(city) {
 async function getFiveDayForecast(city) {
   const current = await getCurrentWeather(city);
 
-  const url = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apiKey}`;
+  const url = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apiKey}&units=metric`;
   const response = await fetch(url, { mode: 'cors' });
   const data = await response.json();
 
