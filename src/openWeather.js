@@ -2,7 +2,7 @@ const apiKey = 'b9a8867dc7111cf01cd9943847a614f7';
 
 // Fetches and returns current weather data in JSON format
 async function getCurrentWeather(city) {
-  const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}`;
+  const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
   const response = await fetch(url, { mode: 'cors' });
   const data = await response.json();
 
@@ -31,10 +31,10 @@ function isNightTime(current, sunrise, sunset) {
 function parseWeatherData(data) {
   return {
     time: new Date(data.dt * 1000),
-    temp: data.main.temp,
-    tempFeelsLike: data.main.feels_like,
-    high: data.main.temp_max,
-    min: data.main.temp_min,
+    temp: Math.round(data.main.temp),
+    tempFeelsLike: Math.round(data.main.feels_like),
+    high: Math.round(data.main.temp_max),
+    min: Math.round(data.main.temp_min),
     weather: data.weather[0].description,
     weatherId: data.weather[0].id,
     isNight: isNightTime(data.dt, data.sys.sunrise, data.sys.sunset),
