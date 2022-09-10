@@ -91,12 +91,14 @@ h3 {
 }
 
 .weather-card {
-  max-width: 125px;
-  background: rgba(0, 0, 0, 0.35);
+  box-sizing: border-box;
+  width: 150px;
+  background: rgba(0, 0, 0, 0.5);
   color: var(--black-200);
   border-radius: 12px;
   padding: 1rem;
   text-align: center;
+  margin: 0.5rem;
 }
 
 .weather-card h1 {
@@ -124,7 +126,13 @@ h3 {
 }
 
 .container {
+  width: 80%;
+  max-width: 960px;
   margin-bottom: 2rem;
+
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 .container > h1 {
