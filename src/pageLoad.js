@@ -96,6 +96,8 @@ function createDailyForecastWeatherCard(weatherObj) {
 // Populate the current weather div with weather card based on weather object
 function populateCurrentWeather(weatherObj) {
   const currentWeatherDiv = document.getElementById('current-weather');
+  currentWeatherDiv.innerHTML = '';
+
   const currentWeatherCard = createCurrentWeatherCard(weatherObj);
 
   currentWeatherDiv.appendChild(currentWeatherCard);
@@ -104,6 +106,8 @@ function populateCurrentWeather(weatherObj) {
 // Populate the 24-hour forecast div with weather cards based on forecast array
 function populate24HourForecast(forecastArray) {
   const forecastWeatherDiv = document.getElementById('24-hour-forecast');
+  forecastWeatherDiv.innerHTML = '';
+
   forecastArray.forEach((forecast) => {
     const weatherCard = createHourlyForecastWeatherCard(forecast);
     forecastWeatherDiv.appendChild(weatherCard);
@@ -113,6 +117,8 @@ function populate24HourForecast(forecastArray) {
 // Populate the 5-day forecast div with weather cards based on forecast array
 function populate5DayForecast(forecastArray) {
   const forecastWeatherDiv = document.getElementById('5-day-forecast');
+  forecastWeatherDiv.innerHTML = '';
+
   forecastArray.forEach((forecast) => {
     const weatherCard = createDailyForecastWeatherCard(forecast);
     forecastWeatherDiv.appendChild(weatherCard);
