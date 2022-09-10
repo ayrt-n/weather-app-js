@@ -41,7 +41,7 @@ searchBtn.addEventListener('click', () => {
     });
 });
 
-// By default load weather for 
+// By default load weather for Ottawa
 getCurrentWeather('Ottawa').then((data) => parseWeatherData(data))
   .then((obj) => {
     setBackgroundImage(obj);
