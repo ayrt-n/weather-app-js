@@ -4,6 +4,11 @@ const apiKey = 'b9a8867dc7111cf01cd9943847a614f7';
 async function getCurrentWeather(city) {
   const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
   const response = await fetch(url, { mode: 'cors' });
+
+  if (!response.ok) {
+    throw new Error('Network response was not OK');
+  }
+
   const data = await response.json();
 
   return data;
@@ -15,6 +20,11 @@ async function getFiveDayForecast(city) {
 
   const url = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apiKey}&units=metric`;
   const response = await fetch(url, { mode: 'cors' });
+
+  if (!response.ok) {
+    throw new Error('Network response was not OK');
+  }
+
   const data = await response.json();
 
   // Set sunrise and sunset variable, not available in forecast API call
