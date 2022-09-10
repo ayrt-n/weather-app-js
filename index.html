@@ -15,9 +15,9 @@
       <nav class="navbar">
         <div class="navbar-item">
           <div class="field is-grouped">
-            <input type="text" class="input" placeholder="Enter city name!">
+            <input type="text" class="input" placeholder="Enter city name!" id="search">
             <div class="control">
-              <button class="button">
+              <button class="button" id="search-button">
                 Search
               </button>
             </div>
@@ -26,20 +26,17 @@
       </nav>
       
       <!-- Display of Weather and Forecast -->
-      <h1>Ottawa, Ontario</h1>
-      <div class="current" id="current-weather">
-      </div>
+      <h1 id="location">Ottawa, Ontario</h1>
+ 
+      <div class="current container" id="current-weather"></div>
 
-      <div class="forecast" id="24-hour-forecast">
-        <h1>24-Hour Forecast</h1>
+      <h1>24-Hour Forecast</h1>
+      <div class="forecast container" id="24-hour-forecast"></div>
 
-      </div>
-
-      <div class="forecast" id="5-day forecast">
-        <h1>5-Day Forecast</h1>
-
-      </div>
+      <h1>5-Day Forecast</h1>
+      <div class="forecast container" id="5-day-forecast"></div>
     </div>
+    
     <script src="main.js"></script>
   </body>
 </html>
